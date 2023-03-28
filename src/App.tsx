@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import { BaseLayout } from './layouts';
 
@@ -9,15 +9,15 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <BaseLayout>
-        <Routes>
-          <Route path="/" element={<GreatingPage />} />
-          <Route path="/weapones-categories" element={<WeaponesCategory />} />
-          <Route path="/pistols-list" element={<PistolsList />} />
-        </Routes>
-      </BaseLayout>
-    </Router>
+    // <Router>
+    <BaseLayout>
+      <Routes>
+        <Route path="/" element={<GreatingPage />} />
+        <Route path="/weapones-categories" element={<WeaponesCategory />} />
+        <Route path="/pistols-list" element={<PistolsList />} />
+      </Routes>
+    </BaseLayout>
+    // </Router>
   );
 }
 
