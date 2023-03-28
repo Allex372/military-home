@@ -9,8 +9,14 @@ export const GreatingPage = () => {
                 <div className={styles.textWrapper}>
                     <p>Привіт, я допоможу тобі вивчити багато нового</p>
                 </div>
-                <div className={styles.textWrapper}>
-                    <button><Link to='/weapones-categories'>Відкрити каталог</Link></button>
+                <div className={styles.btnWrapper}>
+                    <Link to='/weapones-categories'>
+                        <div className={styles.btn}>
+                            <p>
+                                <span>Відкрити каталог</span>
+                            </p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

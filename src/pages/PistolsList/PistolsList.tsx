@@ -17,7 +17,7 @@ export const PistolsList = () => {
                 <ul>
                     {
                         PistolsArray.map((el: PistolsInterface) => (
-                            <li key={el.id} onClick={() => setPistolId({ ...el })}>{el.name}</li>
+                            <li key={el.id} className={styles.linkStyle} onClick={() => setPistolId({ ...el })}>{el.name}</li>
                         ))
                     }
                 </ul>
@@ -25,14 +25,15 @@ export const PistolsList = () => {
             <div className={styles.descriptionWrapper}>
                 {
                     pistolId ?
-                        (<div>
+                        (<div className={styles.weaponDescription}>
+                            <div className={styles.weaponName}>{pistolId.name}</div>
                             <div className={styles.imageWrapper}>
                                 <img src={img} className={styles.image} alt='Пістолет' />
                             </div>
-                            <div>{pistolId.name}</div>
-                            <div>{pistolId.description}</div>
+
+                            <div className={styles.weaponTest}>{pistolId.description}</div>
                         </div>)
-                        : <p>Оберіть пістолет з списку</p>
+                        : <p style={{ color: 'ghostwhite' }}>Оберіть пістолет з списку</p>
                 }
             </div>
         </div>
