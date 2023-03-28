@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/military-home/static/css/main.715b79f2.css",
-    "main.js": "/military-home/static/js/main.54345a9e.js",
+    "main.css": "/military-home/static/css/main.17ac120a.css",
+    "main.js": "/military-home/static/js/main.e3b5a53b.js",
     "static/js/787.a2ce099c.chunk.js": "/military-home/static/js/787.a2ce099c.chunk.js",
     "static/media/Glock_17.jpg": "/military-home/static/media/Glock_17.a437080af63eec78ef52.jpg",
     "index.html": "/military-home/index.html",
-    "main.715b79f2.css.map": "/military-home/static/css/main.715b79f2.css.map",
-    "main.54345a9e.js.map": "/military-home/static/js/main.54345a9e.js.map",
+    "main.17ac120a.css.map": "/military-home/static/css/main.17ac120a.css.map",
+    "main.e3b5a53b.js.map": "/military-home/static/js/main.e3b5a53b.js.map",
     "787.a2ce099c.chunk.js.map": "/military-home/static/js/787.a2ce099c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.715b79f2.css",
-    "static/js/main.54345a9e.js"
+    "static/css/main.17ac120a.css",
+    "static/js/main.e3b5a53b.js"
   ]
 }
