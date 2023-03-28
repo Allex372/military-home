@@ -9,18 +9,15 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      hello
-    </div>
-    // <Router>
-    //   <BaseLayout>
-    //     <Routes>
-    //       <Route path="/" element={<GreatingPage />} />
-    //       <Route path="/weapones-categories" element={<WeaponesCategory />} />
-    //       <Route path="/pistols-list" element={<PistolsList />} />
-    //     </Routes>
-    //   </BaseLayout>
-    // </Router>
+    <Router>
+      <BaseLayout>
+        <Routes>
+          <Route path="/" element={<GreatingPage />} />
+          <Route path="/weapones-categories" element={<WeaponesCategory />} />
+          <Route path="/pistols-list" element={<PistolsList />} />
+        </Routes>
+      </BaseLayout>
+    </Router>
   );
 }
 
