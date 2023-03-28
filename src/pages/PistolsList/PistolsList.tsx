@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import styles from './PistolsList.module.css';
-
-const pistolsArray = [
-    { id: 1, name: 'Glock', description: 'lorem asdsad asd asd asdjnda jn jans kjsand kjasn jaksn sadn jk', img: 'src/' },
-    { id: 2, name: 'Glock1', description: 'lorem asdsad asd asd asdjnda jn jans kjsand kjasn jaksn sadn jk', img: 'src/' },
-    { id: 3, name: 'Glock2', description: 'lorem asdsad asd asd asdjnda jn jans kjsand kjasn jaksn sadn jk', img: 'src/' },
-    { id: 4, name: 'Glock3', description: 'lorem asdsad asd asd asdjnda jn jans kjsand kjasn jaksn sadn jk', img: 'src/' },
-    { id: 5, name: 'Glock4', description: 'lorem asdsad asd asd asdjnda jn jans kjsand kjasn jaksn sadn jk', img: 'src/' },
-];
-
+import { PistolsArray } from '../../constants';
+import img from '../../img/Glock_17.jpg';
 interface PistolsInterface {
     id: number;
     name: string;
@@ -23,7 +16,7 @@ export const PistolsList = () => {
             <div className={styles.listWrapper}>
                 <ul>
                     {
-                        pistolsArray.map((el: PistolsInterface) => (
+                        PistolsArray.map((el: PistolsInterface) => (
                             <li key={el.id} onClick={() => setPistolId({ ...el })}>{el.name}</li>
                         ))
                     }
@@ -33,7 +26,9 @@ export const PistolsList = () => {
                 {
                     pistolId ?
                         (<div>
-                            <div>{pistolId.img}</div>
+                            <div className={styles.imageWrapper}>
+                                <img src={img} className={styles.image} alt='Пістолет' />
+                            </div>
                             <div>{pistolId.name}</div>
                             <div>{pistolId.description}</div>
                         </div>)
