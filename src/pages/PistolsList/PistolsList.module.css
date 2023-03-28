@@ -1,35 +1,69 @@
-.wrapper{
+.wrapper {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.listWrapper{
-    width: 50%;
-    align-items: center;
+.categoriesList {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-li{
+.linkStyle {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 
-li:hover{
-    color: blue;
+.linkStyle:hover {
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 10px;
+    transition: 0.5s;
 }
-.descriptionWrapper{
+
+.listWrapper {
+    width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionWrapper {
     width: 50%;
     display: flex;
     flex-direction: column;
 }
 
-.imageWrapper{
+.imageWrapper {
     height: 200px;
     width: 300px;
+    margin-top: 20px;
 }
 
-.image{
+.image {
     height: 100%;
     width: 100%;
+}
+
+.weaponDescription {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.weaponName {
+    font-size: 30px;
+    font-weight: bold;
+    color: ghostwhite;
+}
+
+.weaponTest {
+    margin-top: 20px;
+    text-align: left;
+    max-width: 300px;
+    color: ghostwhite;
 }

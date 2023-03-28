@@ -19,12 +19,12 @@ interface WeaponeCategory {
 export const WeaponesCategory = () => {
     return (
         <div className={styles.wrapper}>
-            <p>Weapones categories</p>
+            <p className={styles.title}>Обери категорію збої</p>
             <div className={styles.categoriesList}>
                 {
                     categoriesArray.map((el: WeaponeCategory) => (
                         <div key={el.id}>
-                            <Link to={el.link}>
+                            <Link to={el.link} className={styles.linkStyle}>
                                 {el.name}
                             </Link>
                         </div>
