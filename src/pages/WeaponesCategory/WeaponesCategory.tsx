@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-
+import { LinkButton } from '../../components';
 import styles from './WeaponesCategories.module.css'
 
 const categoriesArray = [
@@ -23,11 +22,7 @@ export const WeaponesCategory = () => {
             <div className={styles.categoriesList}>
                 {
                     categoriesArray.map((el: WeaponeCategory) => (
-                        <div key={el.id}>
-                            <Link to={el.link} className={styles.linkStyle}>
-                                {el.name}
-                            </Link>
-                        </div>
+                        <LinkButton link={el.link} text={el.name} />
                     ))
                 }
             </div>
