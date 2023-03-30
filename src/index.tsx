@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,6 +7,8 @@ import {
   createHashRouter,
   RouterProvider
 } from 'react-router-dom';
+import './18n';
+import LanguageProvider from './context/languageContext';
 
 const router = createHashRouter([
   {
@@ -20,7 +22,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <LanguageProvider>
+        <RouterProvider router={router} />
+      </LanguageProvider>
+    </Suspense>
   </React.StrictMode>
 );
 

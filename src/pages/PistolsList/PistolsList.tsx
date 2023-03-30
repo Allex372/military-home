@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from './PistolsList.module.css';
 import { PistolsArray } from '../../constants';
-import img from '../../img/Glock_17.jpg';
 interface PistolsInterface {
     id: number;
     name: string;
@@ -28,7 +27,7 @@ export const PistolsList = () => {
                         (<div className={styles.weaponDescription}>
                             <div className={styles.weaponName}>{pistolId.name}</div>
                             <div className={styles.imageWrapper}>
-                                <img src={img} className={styles.image} alt='Пістолет' />
+                                <img src={pistolId.img} className={styles.image} alt='Пістолет' />
                             </div>
 
                             <div className={styles.weaponTest}>{pistolId.description}</div>

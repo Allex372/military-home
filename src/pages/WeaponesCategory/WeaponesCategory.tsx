@@ -1,12 +1,13 @@
 import { LinkButton } from '../../components';
+import { useLanguage } from '../../context/languageContext';
 import styles from './WeaponesCategories.module.css'
 
 const categoriesArray = [
-    { id: 1, name: 'Пістолети', link: '/pistols-list' },
-    { id: 2, name: 'Напів автоматична зброя', link: '/pistols-list' },
-    { id: 3, name: 'Автомати', link: '/pistols-list' },
-    { id: 4, name: 'Кулемети', link: '/pistols-list' },
-    { id: 5, name: 'Гранати', link: '/pistols-list' },
+    { id: 1, name: 'Pistols', link: '/pistols-list' },
+    { id: 2, name: 'Automaton', link: '/pistols-list' },
+    { id: 3, name: 'Mortar', link: '/pistols-list' },
+    { id: 4, name: 'MachineGun', link: '/pistols-list' },
+    { id: 5, name: 'GrenadeLauncher', link: '/pistols-list' },
 ]
 
 interface WeaponeCategory {
@@ -16,13 +17,14 @@ interface WeaponeCategory {
 }
 
 export const WeaponesCategory = () => {
+    const { t } = useLanguage();
     return (
         <div className={styles.wrapper}>
-            <p className={styles.title}>Обери категорію збої</p>
+            <p className={styles.title}>{t("ChoseWeaponesTypes")}</p>
             <div className={styles.categoriesList}>
                 {
                     categoriesArray.map((el: WeaponeCategory) => (
-                        <LinkButton link={el.link} text={el.name} />
+                        <LinkButton link={el.link} text={t(el.name)} />
                     ))
                 }
             </div>

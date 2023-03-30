@@ -9,3 +9,10 @@
     padding-left: 16px;
     padding-right: 16px;
 }
+
+.lngBtnWrapper {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    display: flex;
+}
