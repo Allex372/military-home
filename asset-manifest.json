@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/military-home/static/css/main.e737139f.css",
-    "main.js": "/military-home/static/js/main.51a235ce.js",
+    "main.css": "/military-home/static/css/main.8d545733.css",
+    "main.js": "/military-home/static/js/main.367b821c.js",
     "static/js/787.a2ce099c.chunk.js": "/military-home/static/js/787.a2ce099c.chunk.js",
     "static/media/Glock_19.png": "/military-home/static/media/Glock_19.203d244866bbe28433b3.png",
     "static/media/Glock_17.png": "/military-home/static/media/Glock_17.31086cd16ca7623ac811.png",
     "static/media/M9.png": "/military-home/static/media/M9.e02646ef9d971bc541e2.png",
     "static/media/Jericho_941F.png": "/military-home/static/media/Jericho_941F.5f1304c8b5bf22c28732.png",
+    "static/media/g19.glb": "/military-home/static/media/g19.2f21b0c4d70d416ff52b.glb",
     "static/media/SAR9.png": "/military-home/static/media/SAR9.1efebc24d86da7de45d7.png",
     "index.html": "/military-home/index.html",
     "static/media/getFetch.cjs": "/military-home/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.e737139f.css.map": "/military-home/static/css/main.e737139f.css.map",
-    "main.51a235ce.js.map": "/military-home/static/js/main.51a235ce.js.map",
+    "main.8d545733.css.map": "/military-home/static/css/main.8d545733.css.map",
+    "main.367b821c.js.map": "/military-home/static/js/main.367b821c.js.map",
     "787.a2ce099c.chunk.js.map": "/military-home/static/js/787.a2ce099c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e737139f.css",
-    "static/js/main.51a235ce.js"
+    "static/css/main.8d545733.css",
+    "static/js/main.367b821c.js"
   ]
 }
