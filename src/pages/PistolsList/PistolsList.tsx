@@ -16,6 +16,7 @@ interface PistolsInterface {
     description: string;
     img: string;
     model: string;
+    detailsImg: string;
 }
 
 type ComponentProps = {
@@ -24,7 +25,6 @@ type ComponentProps = {
 }
 
 type LookAtModelProps = {
-    // position: Vector3
     id: string
     modelFolder: string;
     modelName: string;
@@ -42,7 +42,7 @@ const LookAtModel: FC<LookAtModelProps> = ({
                 rootUrl={`${modelFolder}/`}
                 sceneFilename={modelName}
                 scaleToDimension={3.0}
-                position={new Vector3(0, 0.5, 0)}
+                position={new Vector3(0, 0, 0)}
             />
         </Suspense>
     )
@@ -51,6 +51,7 @@ const LookAtModel: FC<LookAtModelProps> = ({
 export const PistolsList = () => {
     const [pistolId, setPistolId] = useState<PistolsInterface | null>(null);
     const [openModal, setOpenModal] = useState<boolean>(false);
+    const [isTabDisplay, setIsTabDisplay] = useState<string>('');
     const [modelName, setModelName] = useState<string | null>(null);
     const [modelFolder, setModelFolder] = useState<string | null>(null);
 
@@ -68,8 +69,17 @@ export const PistolsList = () => {
     const ComponentScene: FC<ComponentProps> = ({ modelFolder, modelName }) => {
         return (
             <Dialog open={openModal} fullScreen>
-                <Button onClick={() => setOpenModal(false)}>Close Modal</Button>
-                <Engine
+                <div className={styles.modalWrapper}>
+                    <div className={styles.closeBtnWrapper}>
+                        <Button onClick={() => setOpenModal(false)}>Close Modal</Button>
+                    </div>
+                    <div className={styles.btnsWrapper}>
+                        <Button onClick={() => setIsTabDisplay('3d')}>3D model</Button>
+                        <Button onClick={() => setIsTabDisplay('details')}>Weapon details</Button>
+                    </div>
+                </div>
+
+                {isTabDisplay === '3d' ? <Engine
                     antialias
                     adaptToDeviceRatio
                     canvasId="babylon-js"
@@ -98,7 +108,15 @@ export const PistolsList = () => {
                             id="1"
                         />
                     </Scene>
-                </Engine>
+                </Engine> :
+                    <div className={styles.weaponDetailsWrapper}>
+                        {pistolId?.detailsImg ?
+                            <div className={styles.detail}>
+                                <img src={pistolId?.detailsImg} className={styles.detailsImg} alt='деталі зброї' />
+                            </div>
+                            :
+                            <div>фото не знайдено</div>}
+                    </div>}
             </Dialog>
         )
     };
@@ -120,7 +138,7 @@ export const PistolsList = () => {
                             <div className={styles.weaponName}>{pistolId.name}</div>
                             <div className={styles.imageWrapper}>
                                 <Tooltip placement="top-end" title="Натисни щоб побачити 3D модель зброї">
-                                    <img src={pistolId.img} className={styles.image} alt='Пістолет' onClick={() => setOpenModal(true)} />
+                                    <img src={pistolId.img} className={styles.image} alt='Пістолет' onClick={() => { setOpenModal(true); setIsTabDisplay('3d') }} />
                                 </Tooltip>
                             </div>
 
