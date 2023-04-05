@@ -4,6 +4,14 @@
     align-items: center;
 }
 
+.sceneWrapper {
+    display: flex;
+    z-index: 100;
+    background-color: aqua;
+    width: 400px;
+    height: 400px;
+}
+
 .categoriesList {
     display: flex;
     flex-wrap: wrap;

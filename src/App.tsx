@@ -9,7 +9,6 @@ import './App.css';
 
 function App() {
   return (
-    // <Router>
     <BaseLayout>
       <Routes>
         <Route path="/" element={<GreatingPage />} />
@@ -17,7 +16,6 @@ function App() {
         <Route path="/pistols-list" element={<PistolsList />} />
       </Routes>
     </BaseLayout>
-    // </Router>
   );
 }
 
