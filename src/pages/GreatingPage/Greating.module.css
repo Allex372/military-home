@@ -22,7 +22,8 @@
 .btnWrapper {
     max-width: 600px;
     text-align: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    margin-left: 20px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -34,6 +35,11 @@
     .textWrapper {
         text-align: center;
         margin-left: 0;
+    }
+
+    .btnWrapper {
+        margin-left: 0;
+        margin-top: 20px;
     }
 
 }
