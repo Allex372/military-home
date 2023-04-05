@@ -1,15 +1,107 @@
-import { useState } from 'react';
-import styles from './PistolsList.module.css';
+import { useState, FC, Suspense, useEffect } from 'react';
+import { Engine, Scene, Model } from 'react-babylonjs'
+import { Vector3 } from '@babylonjs/core'
+import Dialog from '@mui/material/Dialog';
+import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
+import "@babylonjs/loaders/glTF";
+
 import { PistolsArray } from '../../constants';
+
+import styles from './PistolsList.module.css';
+
 interface PistolsInterface {
     id: number;
     name: string;
     description: string;
     img: string;
+    model: string;
+}
+
+type ComponentProps = {
+    modelFolder: string;
+    modelName: string;
+}
+
+type LookAtModelProps = {
+    // position: Vector3
+    id: string
+    modelFolder: string;
+    modelName: string;
+}
+
+const LookAtModel: FC<LookAtModelProps> = ({
+    modelName,
+    modelFolder
+}) => {
+
+    return (
+        <Suspense fallback={<box name="fallback" position={Vector3.Zero()} />}>
+            <Model
+                name="weapon"
+                rootUrl={`${modelFolder}/`}
+                sceneFilename={modelName}
+                scaleToDimension={3.0}
+                position={new Vector3(0, 0.5, 0)}
+            />
+        </Suspense>
+    )
 }
 
 export const PistolsList = () => {
     const [pistolId, setPistolId] = useState<PistolsInterface | null>(null);
+    const [openModal, setOpenModal] = useState<boolean>(false);
+    const [modelName, setModelName] = useState<string | null>(null);
+    const [modelFolder, setModelFolder] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (pistolId) {
+            const strToArray = pistolId.model.split("/");
+            const fileName = strToArray.pop();
+            fileName && setModelName(fileName);
+            const fileFolder = strToArray.join('/');
+            fileFolder && setModelFolder(fileFolder);
+        }
+    }, [pistolId]);
+
+
+    const ComponentScene: FC<ComponentProps> = ({ modelFolder, modelName }) => {
+        return (
+            <Dialog open={openModal} fullScreen>
+                <Button onClick={() => setOpenModal(false)}>Close Modal</Button>
+                <Engine
+                    antialias
+                    adaptToDeviceRatio
+                    canvasId="babylon-js"
+                    renderOptions={{
+                        whenVisibleOnly: true,
+                    }}
+                >
+                    <Scene>
+                        <arcRotateCamera
+                            name="camera1"
+                            target={Vector3.Zero()}
+                            alpha={Math.PI / 2}
+                            beta={Math.PI / 4}
+                            radius={8}
+                            lowerRadiusLimit={2}
+                            upperRadiusLimit={10}
+                        />
+                        <hemisphericLight
+                            name="light1"
+                            intensity={0.7}
+                            direction={Vector3.Up()}
+                        />
+                        <LookAtModel
+                            modelFolder={modelFolder}
+                            modelName={modelName}
+                            id="1"
+                        />
+                    </Scene>
+                </Engine>
+            </Dialog>
+        )
+    };
     return (
         <div className={styles.wrapper}>
             <div className={styles.listWrapper}>
@@ -27,7 +119,9 @@ export const PistolsList = () => {
                         (<div className={styles.weaponDescription}>
                             <div className={styles.weaponName}>{pistolId.name}</div>
                             <div className={styles.imageWrapper}>
-                                <img src={pistolId.img} className={styles.image} alt='Пістолет' />
+                                <Tooltip placement="top-end" title="Натисни щоб побачити 3D модель зброї">
+                                    <img src={pistolId.img} className={styles.image} alt='Пістолет' onClick={() => setOpenModal(true)} />
+                                </Tooltip>
                             </div>
 
                             <div className={styles.weaponTest}>{pistolId.description}</div>
@@ -35,6 +129,8 @@ export const PistolsList = () => {
                         : <p style={{ color: 'ghostwhite' }}>Оберіть пістолет з списку</p>
                 }
             </div>
+            {(modelName && modelFolder) && <ComponentScene modelFolder={modelFolder} modelName={modelName} />
+            }
         </div>
     )
 }
