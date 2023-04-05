@@ -24,7 +24,7 @@ export const WeaponesCategory = () => {
             <div className={styles.categoriesList}>
                 {
                     categoriesArray.map((el: WeaponeCategory) => (
-                        <LinkButton link={el.link} text={t(el.name)} />
+                        <LinkButton link={el.link} text={t(el.name)} key={el.id} />
                     ))
                 }
             </div>
