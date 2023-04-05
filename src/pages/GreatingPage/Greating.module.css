@@ -22,7 +22,7 @@
 .btnWrapper {
     max-width: 600px;
     text-align: center;
-    margin: 150px auto;
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 1024px) {

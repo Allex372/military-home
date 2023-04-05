@@ -27,10 +27,8 @@
 }
 
 .linkStyle:hover {
-    border-radius: 10px;
-    border: 2px solid white;
-    padding: 10px;
-    transition: 0.5s;
+    color: black;
+    transition: 0.7s;
 }
 
 .listWrapper {
@@ -60,7 +58,6 @@
 .weaponDescription {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 
 .weaponName {
@@ -74,4 +71,47 @@
     text-align: left;
     max-width: 300px;
     color: ghostwhite;
+}
+
+.modalWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.closeBtnWrapper {
+    margin-top: 16px;
+}
+
+.btnsWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.weaponDetailsWrapper {
+    /* background-color: rgb(56, 52, 76); */
+    height: 100%;
+}
+
+.detail {
+    height: 100%;
+    width: 100%;
+}
+
+.detailsImg {
+    /* height: 100%; */
+    width: 100%;
+}
+
+@media screen and (max-width: 635px) {
+    .wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .descriptionWrapper {
+        align-items: center;
+        margin-bottom: 20px;
+    }
 }

@@ -5,8 +5,6 @@ import { BaseLayout } from './layouts';
 
 import { GreatingPage, WeaponesCategory, PistolsList } from './pages';
 
-import './App.css';
-
 function App() {
   return (
     <BaseLayout>
